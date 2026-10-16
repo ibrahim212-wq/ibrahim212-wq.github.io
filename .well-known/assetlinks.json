@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.routemind.app",
+      "sha256_cert_fingerprints": [
+        "68:81:92:22:6E:93:21:6D:27:FA:22:05:63:14:FD:0E:CA:75:DE:35:F4:A2:59:75:8E:51:F3:43:24:D0:9F:78",
+        "B1:7B:E2:93:63:8D:FF:40:70:F3:9D:6B:AA:73:17:ED:91:95:D3:97:3E:86:DC:D5:A2:CE:C1:6C:F1:7E:09:99"
+      ]
+    }
+  }
+]

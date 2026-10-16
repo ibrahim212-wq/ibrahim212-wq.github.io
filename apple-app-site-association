@@ -1,0 +1,49 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "R3D75N7XCX.com.routemind.app"
+        ],
+        "components": [
+          {
+            "/": "/p/*",
+            "comment": "place short link"
+          },
+          {
+            "/": "/r/*",
+            "comment": "route short link"
+          },
+          {
+            "/": "/l/*",
+            "comment": "live trip"
+          },
+          {
+            "/": "/go",
+            "comment": "stateless link"
+          },
+          {
+            "/": "/go/*"
+          },
+          {
+            "/": "/open",
+            "comment": "wrapped third-party link"
+          },
+          {
+            "/": "/.well-known/*",
+            "exclude": true
+          },
+          {
+            "/": "/api/*",
+            "exclude": true
+          }
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "R3D75N7XCX.com.routemind.app"
+    ]
+  }
+}
