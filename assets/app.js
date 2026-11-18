@@ -8,6 +8,7 @@
 import {
   FOOT, linkFromGoParams, liveModel, liveTick, metres, openTarget, pageModel, pickLang, queryDict, T,
 } from "./grammar.js";
+import { atlasModel } from "./atlas.js";
 
 const cfg = window.ROUTEMIND_LINKS;
 const api = cfg.apiBase.replace(/\/+$/, "");
@@ -59,7 +60,7 @@ function themeColor() {
 function head(title, description, pageUrl, image, appUrl, appStoreId) {
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
-  document.title = `${title} · RouteMind`;
+  document.title = `${title} · Masar`;
   meta("name", "description", description);
   meta("property", "og:title", title);
   meta("property", "og:description", description);
@@ -82,7 +83,7 @@ function head(title, description, pageUrl, image, appUrl, appStoreId) {
 }
 
 function brand(tag) {
-  return h("div", { class: "brand" }, h("span", { class: "logo", "aria-hidden": "true" }), h("b", { text: "RouteMind" }),
+  return h("div", { class: "brand" }, h("span", { class: "logo", "aria-hidden": "true" }), h("b", { text: "Masar" }),
     h("span", { class: "tag", text: `· ${tag}` }));
 }
 
@@ -155,7 +156,7 @@ function wireOpen(open, note, m) {
 
 function renderLanding(m) {
   const t = m.t;
-  head(m.title, m.address ? `${m.address} · ${m.coords || t.tag}` : m.coords || t.tag, m.pageUrl, m.ogImage, m.appUrl,
+  head(m.title, m.address ? `${m.address} · ${m.coords || t.tag}` : m.coords || t.tag, m.pageUrl, m.ogImage, m.previewAppUrl || m.appUrl,
     m.appStoreId);
   const body = h("div", { class: "body" }, h("h1", { text: m.title }));
   if (m.address) body.append(h("p", { class: "sub", text: m.address }));
@@ -195,7 +196,7 @@ function renderLanding(m) {
   actions.append(store);
   card.append(actions);
   wireOpen(open, note, m);
-  mount(brand(t.tag), card, h("p", { class: "foot", text: `routemind · ${m.foot}` }));
+  mount(brand(m.tag || t.tag), card, h("p", { class: "foot", text: `routemind · ${m.foot}` }));
 }
 
 const base = { lang, cfg, origin: location.origin, href: location.href };
@@ -315,6 +316,8 @@ function main() {
   }
   if (seg.length === 2 && (seg[0] === "p" || seg[0] === "r")) return shortLink(seg[0], id);
   if (seg.length === 2 && seg[0] === "l") return livePage(id);
+  // Atlas (assets/atlas.js): served through 404.html like the short links
+  if (path === "/go/atlas") return renderLanding(atlasModel({ ...base, search: location.search }));
   if (path === "/go" || path === "/go.html") return goPage();
   if (path === "/open" || path === "/open.html") return openPage();
   if (path === "/" || path === "/index.html") return renderLanding(pageModel({ ...base, seg: "" }));

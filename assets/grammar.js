@@ -371,18 +371,18 @@ export function openTarget(u) {
 
 export const T = {
   en: {
-    open: "Open in RouteMind", get: "Get RouteMind", google: "Google Maps", apple: "Apple Maps",
+    open: "Open in Masar", get: "Get Masar", google: "Google Maps", apple: "Apple Maps",
     waze: "Waze", copy: "Copy coordinates", copied: "Copied", shared: "Shared location",
     via: "via {n} stops", route: "Route", tag: "Smart traffic navigation for Cairo & Giza",
-    no_app: "Don't have the app yet?", opening: "Opening RouteMind…", still: "Still here? Install RouteMind:",
+    no_app: "Don't have the app yet?", opening: "Opening Masar…", still: "Still here? Install Masar:",
     live: "Live trip", arriving: "Arriving in {m} min", updated: "Updated {s}s ago", ended: "This trip has ended.",
     waiting: "Waiting for the first position…", heading: "Heading to {d}", unavailable: "This link is no longer available.",
   },
   ar: {
-    open: "افتح في RouteMind", get: "نزّل RouteMind", google: "جوجل مابس", apple: "آبل مابس",
+    open: "افتح في مسار", get: "نزّل مسار", google: "جوجل مابس", apple: "آبل مابس",
     waze: "ويز", copy: "نسخ الإحداثيات", copied: "اتنسخ", shared: "مكان اتبعتلك",
     via: "عن طريق {n} محطات", route: "مسار", tag: "ملاحة ذكية بالمرور للقاهرة والجيزة",
-    no_app: "لسه منزّلتش التطبيق؟", opening: "بنفتح RouteMind…", still: "لسه هنا؟ نزّل RouteMind:",
+    no_app: "لسه منزّلتش التطبيق؟", opening: "بنفتح مسار…", still: "لسه هنا؟ نزّل مسار:",
     live: "رحلة لايف", arriving: "هيوصل بعد {m} دقيقة", updated: "اتحدّث من {s} ثانية", ended: "الرحلة دي خلصت.",
     waiting: "مستنيين أول موقع…", heading: "رايح {d}", unavailable: "اللينك ده مبقاش شغال.",
   },
@@ -394,7 +394,7 @@ const STATE_TITLES = {
 };
 
 export function stateTitle(state, lang) {
-  return STATE_TITLES[lang][state] ?? "RouteMind";
+  return STATE_TITLES[lang][state] ?? (lang === "ar" ? "مسار" : "Masar");
 }
 
 export function stateText(state, lang) {
@@ -426,7 +426,7 @@ export function pageModel({ link = null, linkId = null, seg, state = null, wrapp
   } else appUrl = "routemind://v1/place";
   return {
     lang, rtl: lang === "ar", t,
-    title: link ? linkTitle(link, lang) : state ? stateTitle(state, lang) : "RouteMind",
+    title: link ? linkTitle(link, lang) : state ? stateTitle(state, lang) : (lang === "ar" ? "مسار" : "Masar"),
     address: link && link.kind === "place" && truthy(link.address) ? str(link.address) : null,
     coords: p ? `${fmt(p[0])}, ${fmt(p[1])}` : "",
     lat: p ? fmt(p[0]) : "", lng: p ? fmt(p[1]) : "",

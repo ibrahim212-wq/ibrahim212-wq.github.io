@@ -14,6 +14,7 @@ Supabase serves `text/html` from `*.supabase.co` as `text/plain`, which is why t
 | `config.js` | **the one setting**: `apiBase` (= the app's backend base, `<SUPABASE_URL>/functions/v1`), store ids |
 | `404.html`, `index.html`, `go.html`, `open.html` | the same shell; GitHub Pages serves `404.html` for `/p/…`, `/r/…`, `/l/…` |
 | `assets/app.js` | reads the path, fetches the API, draws the page (text only through `textContent`) |
+| `assets/atlas.js` | the Atlas link page (`/go/atlas?c=…`, `j=`, `g=`, `i=`, served through `404.html`): open-in-app on `routemind://v1/atlas?…`, Play with the link in the install referrer (`atlaslink=`), iOS clipboard copy — checked by `node tool/atlas_links_web_check.mjs` |
 | `assets/grammar.js` | the pure part (the `/go` reader, every URL, the English / Egyptian Arabic words) — checked against the Python reference by `supabase/functions/api/tests/links_web.test.ts` |
 | `assets/app.css` | the templates' look; every colour a custom property; dark / light by the system |
 | `.well-known/assetlinks.json` | App Links: `com.routemind.app` + SHA-256 of the signing keys |

@@ -8,21 +8,20 @@
   --line: #1F2E4D;
   --text: #F4F7FB;
   --muted: #9FB0CC;
-  --accent: #3AA76D;
-  --accent-press: #2E8A59;
-  --on-accent: #FFFFFF;
-  --logo-end: #1E5F8A;
+  --accent: #43DCC5;            /* Masar: Keel aqua on Night (D-066); its label is the deep teal, 9.9 : 1 */
+  --accent-press: #2FC4AE;
+  --on-accent: #04201D;
   --btn-bg: #132038;
   --map-bg: #132038;
   --shadow: rgb(0 0 0 / 0.35);
   --state-bg: rgb(229 168 75 / 0.12);
   --state-line: rgb(229 168 75 / 0.35);
   --state-text: #F3D9A4;
-  --pill-bg: rgb(58 167 109 / 0.14);
-  --pill-line: rgb(58 167 109 / 0.4);
-  --pill-text: #BDF0D3;
-  --pulse: rgb(58 167 109 / 0.6);
-  --pulse-out: rgb(58 167 109 / 0);
+  --pill-bg: rgb(67 220 197 / 0.14);
+  --pill-line: rgb(67 220 197 / 0.4);
+  --pill-text: #BFF5EC;
+  --pulse: rgb(67 220 197 / 0.6);
+  --pulse-out: rgb(67 220 197 / 0);
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Arabic", "Cairo", Arial, sans-serif;
 }
 
@@ -37,7 +36,14 @@
     --map-bg: #E8EEF5;
     --shadow: rgb(14 26 43 / 0.10);
     --state-text: #7A4E0E;
-    --pill-text: #1C6B44;
+    --pill-text: #00686E;
+    --accent: #007A80;          /* Masar Teal: white on it 5.1 : 1 */
+    --accent-press: #00686E;
+    --on-accent: #FFFFFF;
+    --pill-bg: rgb(0 122 128 / 0.10);
+    --pill-line: rgb(0 122 128 / 0.35);
+    --pulse: rgb(0 122 128 / 0.5);
+    --pulse-out: rgb(0 122 128 / 0);
   }
 }
 
@@ -55,8 +61,9 @@ html, body {
 .brand b { color: var(--text); letter-spacing: -0.2px; }
 .brand .tag { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .logo {
-  flex: none; width: 28px; height: 28px; border-radius: 8px; display: inline-block;
-  background: linear-gradient(135deg, var(--accent), var(--logo-end));
+  /* Masar's app icon (tools/brand/build_brand.py writes masar-icon.svg) */
+  flex: none; width: 28px; height: 28px; border-radius: 7px; display: inline-block;
+  background: url("masar-icon.svg") center / cover no-repeat;
 }
 .card {
   background: var(--card); border: 1px solid var(--line); border-radius: 22px; overflow: hidden;
